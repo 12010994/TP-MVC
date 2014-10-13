@@ -9,16 +9,16 @@ import javax.swing.JComponent;
 import javax.swing.JFrame;
 
 import com.sun.glass.events.WindowEvent;
+import com.sun.prism.paint.Color;
 
 import fr.istic.model.IChart;
 
 <<<<<<< 79cf0dc8170442bf733bb2527afe060979f20d07
 import java.awt.event.WindowAdapter;
 import java.awt.geom.*;
+import java.awt.*;
 
-public class ChartView extends JComponent{
-	
-
+public class ChartView extends JComponent {
 
 	 public static void main(String[] args){
 	     ChartView chart= new ChartView();
@@ -44,25 +44,34 @@ public class ChartView extends JComponent implements Observer{
 	
 	private static final long serialVersionUID = 1L;
 	private IChart chart;
+	private Rectangle2D rect;
+	private Line2D line;
+	
 	
 	public ChartView(IChart chart){
 		this.chart = chart;
 		chart.addObserver(this);
 	}
 
-	protected void paintComponent(Graphics g){
+	public ChartView() {
+		// TODO Auto-generated constructor stub
+	}
+	
+	
+
+	protected void paintComponent(Graphics g) {
 		Graphics2D graph = (Graphics2D) g;
 		
-		Arc2D.Double arcChart = new Arc2D.Double(Arc2D.PIE);
-		arcChart.setFrame(100, 100, 150, 150);
-		arcChart.setAngleStart(0);
-		arcChart.setAngleExtent(360);
-		
-		Arc2D.Double arcCenter = new Arc2D.Double(Arc2D.PIE);
-		arcCenter.setFrame(100, 100, 150, 150);
-		arcCenter.setAngleExtent(360);
+		Arc2D.Double arcChart = new Arc2D.Double(0, 0, 90, 0, 0, 360,Arc2D.PIE);
+		arcChart.setFrame(100, 100, 200, 200);
 		
 
+		
+		Arc2D.Double arcCenter = new Arc2D.Double(0, 0, 360, 0, 0, 360, Arc2D.PIE);
+		arcCenter.setFrame(150, 150, 100, 100);
+		
+		
+		
 		graph.draw(arcCenter);		
 		graph.draw(arcChart);
 <<<<<<< 79cf0dc8170442bf733bb2527afe060979f20d07
