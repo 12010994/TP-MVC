@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-public class Chart extends Observable implements IChart{
+public class Chart extends Observable{
 	
 	private String name;
 	private int total;

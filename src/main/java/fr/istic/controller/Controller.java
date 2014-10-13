@@ -5,13 +5,12 @@ import java.util.Observable;
 import java.util.Observer;
 
 import fr.istic.model.Chart;
-import fr.istic.model.IChart;
 import fr.istic.model.Segment;
 import fr.istic.view.ChartView;
 
 public class Controller implements Observer{
 	
-	private IChart chart;
+	private Chart chart;
 	private ChartView chartView;
 	
 	private Iterator<Segment> selected;

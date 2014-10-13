@@ -11,8 +11,6 @@ import javax.swing.JFrame;
 import com.sun.glass.events.WindowEvent;
 import com.sun.prism.paint.Color;
 
-import fr.istic.model.IChart;
-
 import java.awt.event.WindowAdapter;
 import java.awt.geom.*;
 import java.awt.*;
