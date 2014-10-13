@@ -2,20 +2,19 @@ package fr.istic.view;
 
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.geom.Arc2D;
 
 import javax.swing.JComponent;
 
-import fr.istic.model.Chart;
 import fr.istic.model.IChart;
 
-import java.awt.geom.*;
-
-public class ChartView extends JComponent{
+public class ChartView extends JComponent implements IChartView{
 	
 	private static final long serialVersionUID = 1L;
+	private IChart chart;
 	
-	public ChartView(){
-		IChart chart = new Chart("Chart1");
+	public ChartView(IChart chart){
+		this.chart = chart;
 	}
 
 	protected void paintComponent(Graphics g){

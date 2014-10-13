@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Observer;
 
 public interface IChart {
-	dzzd
 
 	public abstract void addObserver(Observer o);
 
