@@ -1,6 +1,7 @@
 package fr.istic.view;
 
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Arc2D;
@@ -51,21 +52,28 @@ public class ChartView extends JComponent implements Observer{
 	protected void paintComponent(Graphics g) {
 		Graphics2D graph = (Graphics2D) g;
 		
-		Arc2D.Double arcChart = new Arc2D.Double(0, 0, 90, 0, 0, 360,Arc2D.PIE);
+		Font font = new Font("Arial",Font.BOLD, 16);
+		graph.setFont(font);
+		int degres = 0;
+		
+		for (int i =0; i<chart.getTotal(); i++){
+			//degres += 
+		}
+		Arc2D.Double arcChart = new Arc2D.Double(0, 0, 90, 0, 0, 90,Arc2D.PIE);
 		arcChart.setFrame(100, 100, 300, 300);
 		
 
 		
-		Arc2D.Double arcCenter = new Arc2D.Double(0, 0, 360, 0, 0, 360, Arc2D.PIE);
-		arcCenter.setFrame(150, 150, 200, 200);
+		//Arc2D.Double arcCenter = new Arc2D.Double(0, 0, 360, 0, 0, 360, Arc2D.PIE);
+		//arcCenter.setFrame(150, 150, 200, 200);
 		
 		
-		graph.drawString(chart.getName(), 200,240);
+		//graph.drawString(chart.getName(), 200,230);
 		
+
+		//graph.draw(arcCenter);		
+		graph.fill(arcChart);
 		
-		graph.draw(arcCenter);		
-		graph.draw(arcChart);
-		//graph.drawLine(50, 50, 300, 300);
 		
 	}
 
