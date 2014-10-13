@@ -13,7 +13,6 @@ import com.sun.prism.paint.Color;
 
 import fr.istic.model.IChart;
 
-<<<<<<< 79cf0dc8170442bf733bb2527afe060979f20d07
 import java.awt.event.WindowAdapter;
 import java.awt.geom.*;
 import java.awt.*;
@@ -38,9 +37,7 @@ public class ChartView extends JComponent {
 	    
 	   }
 	 
-=======
 public class ChartView extends JComponent implements Observer{
->>>>>>> c92559faaeea53672fb05704234246ba42f175e8
 	
 	private static final long serialVersionUID = 1L;
 	private IChart chart;
@@ -74,10 +71,7 @@ public class ChartView extends JComponent implements Observer{
 		
 		graph.draw(arcCenter);		
 		graph.draw(arcChart);
-<<<<<<< 79cf0dc8170442bf733bb2527afe060979f20d07
-=======
 		graph.drawLine(50, 50, 300, 300);
->>>>>>> c92559faaeea53672fb05704234246ba42f175e8
 		
 	}
 
