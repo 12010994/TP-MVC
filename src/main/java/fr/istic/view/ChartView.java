@@ -11,6 +11,8 @@ import javax.swing.JFrame;
 import com.sun.glass.events.WindowEvent;
 import com.sun.prism.paint.Color;
 
+import fr.istic.model.Chart;
+
 import java.awt.event.WindowAdapter;
 import java.awt.geom.*;
 import java.awt.*;
@@ -38,12 +40,14 @@ public class ChartView extends JComponent implements Observer{
 	   }
 
 	private static final long serialVersionUID = 1L;
-	private IChart chart;
+	private Chart chart;
 	private Rectangle2D rect;
 	private Line2D line;
 	
+	 
 	
-	public ChartView(IChart chart){
+	
+	public ChartView(Chart chart){
 		this.chart = chart;
 		chart.addObserver(this);
 	}
@@ -64,7 +68,7 @@ public class ChartView extends JComponent implements Observer{
 		
 		Arc2D.Double arcCenter = new Arc2D.Double(0, 0, 360, 0, 0, 360, Arc2D.PIE);
 		arcCenter.setFrame(150, 150, 100, 100);
-		
+		Graphics.drawString(chart.getName(), 50,50);
 		
 		
 		graph.draw(arcCenter);		
