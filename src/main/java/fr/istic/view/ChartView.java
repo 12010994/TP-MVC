@@ -52,18 +52,20 @@ public class ChartView extends JComponent implements Observer{
 		Graphics2D graph = (Graphics2D) g;
 		
 		Arc2D.Double arcChart = new Arc2D.Double(0, 0, 90, 0, 0, 360,Arc2D.PIE);
-		arcChart.setFrame(100, 100, 200, 200);
+		arcChart.setFrame(100, 100, 300, 300);
 		
 
 		
 		Arc2D.Double arcCenter = new Arc2D.Double(0, 0, 360, 0, 0, 360, Arc2D.PIE);
-		arcCenter.setFrame(150, 150, 100, 100);
-		//Graphics.drawString(chart.getName(), 50,50);
+		arcCenter.setFrame(150, 150, 200, 200);
+		
+		
+		graph.drawString(chart.getName(), 200,240);
 		
 		
 		graph.draw(arcCenter);		
 		graph.draw(arcChart);
-		graph.drawLine(50, 50, 300, 300);
+		//graph.drawLine(50, 50, 300, 300);
 		
 	}
 
