@@ -16,8 +16,10 @@ import fr.istic.model.IChart;
 import java.awt.event.WindowAdapter;
 import java.awt.geom.*;
 import java.awt.*;
+import java.util.Observable;
+import java.util.Observer;
 
-public class ChartView extends JComponent {
+public class ChartView extends JComponent implements Observer{
 
 	 public static void main(String[] args){
 	     ChartView chart= new ChartView();
@@ -36,9 +38,7 @@ public class ChartView extends JComponent {
 		
 	    
 	   }
-	 
-public class ChartView extends JComponent implements Observer{
-	
+
 	private static final long serialVersionUID = 1L;
 	private IChart chart;
 	private Rectangle2D rect;
@@ -81,5 +81,7 @@ public class ChartView extends JComponent implements Observer{
 		System.out.println(o.getClass());
 		
 	}
+
+
 
 }
