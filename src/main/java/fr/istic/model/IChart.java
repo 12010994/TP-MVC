@@ -7,7 +7,7 @@ public interface IChart {
 
 	public abstract void addObserver(Observer o);
 
-	public abstract void createSegment(int val, String name, String descriptor);
+	public abstract void createSegment(int val, String name, String descriptor, String color);
 
 	public abstract void deleteSegment(Segment segment);
 

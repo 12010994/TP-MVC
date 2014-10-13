@@ -1,32 +1,46 @@
 package fr.istic.controller;
 
+import java.util.Iterator;
 import java.util.Observable;
 import java.util.Observer;
 
 import fr.istic.model.Chart;
 import fr.istic.model.IChart;
+import fr.istic.model.Segment;
 import fr.istic.view.ChartView;
-import fr.istic.view.IChartView;
 
 public class Controller implements Observer{
 	
 	private IChart chart;
-	private IChartView chartView;
+	private ChartView chartView;
+	
+	private Iterator<Segment> selected;
 
 	public Controller(){
 		
-		chart = new Chart("Chart1");
+		chart = new Chart("ChartTest");
+		chart.addObserver(this);
 		chartView = new ChartView(chart);
+		selected = chart.getSegments().iterator();
 	}
 	
-	public static void main(final String[] args) {
+	public static void main(final String[] args) throws InterruptedException {
 		
 		Controller controller = new Controller();
-		controller.chart.addObserver(controller);
+		
+		controller.chart.createSegment(100, "segment1", "Test", "Blue");
+		while(true){
+			controller.chart.setName("test");
+			Thread.sleep(1000);
+		}
 	}
 
 	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
 		
 	}
+	
+	public void leftSegment(){
+		selected.next();
+	}
+	
 }

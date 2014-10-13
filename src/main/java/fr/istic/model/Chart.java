@@ -24,19 +24,22 @@ public class Chart extends Observable implements IChart{
 		super.addObserver(o);
 	}
 
-	public void createSegment(int val, String name, String descriptor){
+	public void createSegment(int val, String name, String descriptor, String color){
 		total+=val;
-		segments.add(new Segment(name, descriptor, val));
+		segments.add(new Segment(name, descriptor, val, color));
+		notifyObservers();
 	}
 	
 	public void deleteSegment(Segment segment){
 		total-=segment.getVal();
 		segments.remove(segment);
+		notifyObservers();
 	}
 	
 	public void setSegment(int val, Segment segment){
 		deleteSegment(segment);
-		createSegment(val, segment.getName(), segment.getDescriptor());
+		createSegment(val, segment.getName(), segment.getDescriptor(), segment.getColor());
+		notifyObservers();
 	}
 
 	public String getName() {
@@ -45,7 +48,7 @@ public class Chart extends Observable implements IChart{
 
 	public void setName(String name){
 		this.name = name;
-		setChanged();
+		notifyObservers();
 	}
 
 	public int getTotal() {
@@ -54,6 +57,7 @@ public class Chart extends Observable implements IChart{
 
 	public void setTotal(int total) {
 		this.total = total;
+		notifyObservers();
 	}
 
 	public List<Segment> getSegments() {
