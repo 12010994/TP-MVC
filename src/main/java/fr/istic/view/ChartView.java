@@ -50,6 +50,8 @@ public class ChartView extends JComponent implements Observer{
 	   }
 
 	protected void paintComponent(Graphics g) {
+		
+		
 		Graphics2D graph = (Graphics2D) g;
 		
 		Font font = new Font("Arial",Font.BOLD, 16);
@@ -80,8 +82,6 @@ public class ChartView extends JComponent implements Observer{
 	public void update(Observable o, Object arg) {
 		System.out.println("view updated");
 		paintComponent(getGraphics());
-		System.out.println(arg);
-		System.out.println(o.getClass());
 		
 	}
 

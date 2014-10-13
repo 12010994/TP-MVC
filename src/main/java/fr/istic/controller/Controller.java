@@ -24,15 +24,11 @@ public class Controller implements Observer{
 		selected = chart.getSegments().iterator();
 	}
 	
-	public static void main(final String[] args) throws InterruptedException {
+	public static void main(final String[] args){
 		
 		Controller controller = new Controller();
 		
-		controller.chart.createSegment(100, "segment1", "Test", "Blue");
-		while(true){
-			controller.chart.setName("test");
-			Thread.sleep(1000);
-		}
+		controller.chart.createSegment(100, "segment1", "Premier segment", "Blue");
 	}
 
 	public void update(Observable o, Object arg) {
