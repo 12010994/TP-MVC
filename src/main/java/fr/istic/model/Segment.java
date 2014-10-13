@@ -31,6 +31,4 @@ public class Segment {
 		this.val = val;
 	}
 	
-	
-
 }
