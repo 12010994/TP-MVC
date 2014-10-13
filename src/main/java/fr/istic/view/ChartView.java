@@ -21,8 +21,19 @@ import java.util.Observer;
 
 public class ChartView extends JComponent implements Observer{
 
-	 public static void main(String[] args){
-	     ChartView chart= new ChartView();
+
+	private static final long serialVersionUID = 1L;
+	private Chart chart;
+	private Rectangle2D rect;
+	private Line2D line;
+	 
+	public ChartView(Chart chart){
+		this.chart = chart;
+		chart.addObserver(this);
+	}
+
+	public static void main(String[] args){
+	     ChartView chart= new ChartView(new Chart("test"));
 	     
 	   
 			JFrame f = new JFrame("Chart");
@@ -39,25 +50,6 @@ public class ChartView extends JComponent implements Observer{
 	    
 	   }
 
-	private static final long serialVersionUID = 1L;
-	private Chart chart;
-	private Rectangle2D rect;
-	private Line2D line;
-	
-	 
-	
-	
-	public ChartView(Chart chart){
-		this.chart = chart;
-		chart.addObserver(this);
-	}
-
-	public ChartView() {
-		// TODO Auto-generated constructor stub
-	}
-	
-	
-
 	protected void paintComponent(Graphics g) {
 		Graphics2D graph = (Graphics2D) g;
 		
@@ -68,7 +60,7 @@ public class ChartView extends JComponent implements Observer{
 		
 		Arc2D.Double arcCenter = new Arc2D.Double(0, 0, 360, 0, 0, 360, Arc2D.PIE);
 		arcCenter.setFrame(150, 150, 100, 100);
-		Graphics.drawString(chart.getName(), 50,50);
+		//Graphics.drawString(chart.getName(), 50,50);
 		
 		
 		graph.draw(arcCenter);		
