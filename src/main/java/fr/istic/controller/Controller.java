@@ -20,6 +20,7 @@ public class Controller implements Observer{
 		chart = new Chart("ChartTest");
 		chart.addObserver(this);
 		chartView = new ChartView(chart);
+		
 		selected = chart.getSegments().iterator();
 	}
 	

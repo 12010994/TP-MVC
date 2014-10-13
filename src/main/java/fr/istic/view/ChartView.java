@@ -84,6 +84,4 @@ public class ChartView extends JComponent implements Observer{
 		
 	}
 
-
-
 }
