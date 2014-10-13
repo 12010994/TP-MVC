@@ -35,7 +35,6 @@ public class ChartView extends JComponent implements Observer{
 	public static void main(String[] args){
 	     ChartView chart= new ChartView(new Chart("test"));
 	     
-	   
 			JFrame f = new JFrame("Chart");
 			f.getContentPane().add( chart, "Center" );
 
@@ -47,7 +46,6 @@ public class ChartView extends JComponent implements Observer{
 			f.setSize(new Dimension(500, 450));
 			f.setVisible(true);
 		
-	    
 	   }
 
 	protected void paintComponent(Graphics g) {
@@ -70,7 +68,8 @@ public class ChartView extends JComponent implements Observer{
 	}
 
 	public void update(Observable o, Object arg) {
-		System.out.println("updated");
+		System.out.println("view updated");
+		paintComponent(getGraphics());
 		System.out.println(arg);
 		System.out.println(o.getClass());
 		

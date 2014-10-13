@@ -36,10 +36,10 @@ public class Controller implements Observer{
 	}
 
 	public void update(Observable o, Object arg) {
-		
+		System.out.println("controller updated");
 	}
 	
-	public void leftSegment(){
+	public void nextSegment(){
 		selected.next();
 	}
 	

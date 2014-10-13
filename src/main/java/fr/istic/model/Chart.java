@@ -27,18 +27,21 @@ public class Chart extends Observable{
 	public void createSegment(int val, String name, String descriptor, String color){
 		total+=val;
 		segments.add(new Segment(name, descriptor, val, color));
+		setChanged();
 		notifyObservers();
 	}
 	
 	public void deleteSegment(Segment segment){
 		total-=segment.getVal();
 		segments.remove(segment);
+		setChanged();
 		notifyObservers();
 	}
 	
 	public void setSegment(int val, Segment segment){
 		deleteSegment(segment);
 		createSegment(val, segment.getName(), segment.getDescriptor(), segment.getColor());
+		setChanged();
 		notifyObservers();
 	}
 
@@ -48,6 +51,7 @@ public class Chart extends Observable{
 
 	public void setName(String name){
 		this.name = name;
+		setChanged();
 		notifyObservers();
 	}
 
@@ -57,6 +61,7 @@ public class Chart extends Observable{
 
 	public void setTotal(int total) {
 		this.total = total;
+		setChanged();
 		notifyObservers();
 	}
 
