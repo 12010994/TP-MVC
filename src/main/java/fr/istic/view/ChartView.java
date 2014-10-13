@@ -8,6 +8,8 @@ import javax.swing.JComponent;
 import fr.istic.model.Chart;
 import fr.istic.model.IChart;
 
+import java.awt.geom.*;
+
 public class ChartView extends JComponent{
 	
 	private static final long serialVersionUID = 1L;
