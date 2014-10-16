@@ -5,6 +5,7 @@ public class Segment {
 	private String name;
 	private String descriptor;
 	private int val;
+	private boolean focused;
 	
 	public Segment(String name, String descriptor, int val) {
 		this.name = name;
@@ -29,6 +30,14 @@ public class Segment {
 	}
 	public void setVal(int val) {
 		this.val = val;
+	}
+
+	public boolean isFocused() {
+		return focused;
+	}
+
+	public void setFocused(boolean focused) {
+		this.focused = focused;
 	}
 
 	

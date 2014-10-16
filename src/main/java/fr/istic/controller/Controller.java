@@ -4,6 +4,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.Iterator;
+import java.util.ListIterator;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -17,50 +18,43 @@ public class Controller implements Observer{
 	
 	private Chart chart;
 	private ChartView chartView;
-	
-	private Iterator<Segment> selected;
+	//private Segment selected;
+	private ListIterator<Segment> it;
 
 	public Controller(){
 		
-		chart = new Chart("ChartTest");
+		chart = new Chart("Sample Chart");
 		chart.addObserver(this);
 		chartView = new ChartView(chart);
-		
-		selected = chart.getSegments().iterator();
+		it = chart.getSegments().listIterator();
 	}
 	
 	public static void main(final String[] args) {
 		
-		JFrame frame = new JFrame("test");
-		frame.setSize(500,500);
-		
 		Controller controller = new Controller();
+		
+		JFrame frame = new JFrame("Chart Application");
+		frame.setSize(600,600);
 		
 		frame.getContentPane().add(controller.chartView);
 
 		frame.setVisible(true);
 		
-		
-		controller.chart.createSegment(100, "segment1", "Test");
-		controller.chart.createSegment(500, "segment2", "testoi");
-		controller.chart.createSegment(300, "segment3", "Hello");
-		controller.chart.createSegment(300, "segment4", "Hello1");
-		controller.chart.createSegment(100, "segment53", "Hello2");
-		
-		
+		controller.chart.createSegment(100, "segment1", "Premier segment de test");
+		controller.chart.createSegment(500, "segment2", "Deuxieme semgnet de test");
+		controller.chart.createSegment(300, "segment3", "Troisieme segment de test");
+		controller.chart.createSegment(300, "segment4", "Quatrieme segment de test");
+		controller.chart.createSegment(100, "segment5", "Cinquieme segment de test");
 
 		MouseListener l = new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				//e.getPos().x; e.getPos().y pour mouse listener 
-			    e.getX(); e.getY();
-			    System.out.println(e.getX());
-			    System.out.println(e.getY());
+			    System.out.println(e.getX()+","+e.getY());
 			    //controller.chartView.
-				
 			}
 		};
-		frame.addMouseListener(l);
 		
+		frame.addMouseListener(l);
 		
 	}
 
@@ -69,7 +63,10 @@ public class Controller implements Observer{
 	}
 	
 	public void nextSegment(){
-		selected.next();
+		it.next();
+		it.previous().setFocused(false);
+		it.next().setFocused(true);
+		
 	}
 	
 }
