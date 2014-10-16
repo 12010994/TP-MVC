@@ -51,8 +51,13 @@ public class ChartView extends JComponent implements Observer{
 		for (Segment seg : chart.getSegments()){
 			
 			float degres = ((float) seg.getVal() /(float) chart.getTotal())*360;
-			
-			Arc2D.Double arcChart = new Arc2D.Double(0, 0, 90, 90, ecart, degres,Arc2D.PIE);
+			Arc2D.Double arcChart;
+			if(seg.isFocused()){
+				arcChart = new Arc2D.Double(0, 0, 110,110, ecart, degres,Arc2D.PIE);
+				//new Arc2D.D
+			}else{
+				arcChart = new Arc2D.Double(0, 0, 90, 90, ecart, degres,Arc2D.PIE);
+			}
 			arcChart.setFrame(100, 100, 300, 300);
 			graph.setPaint(colors[indcolor]);
 

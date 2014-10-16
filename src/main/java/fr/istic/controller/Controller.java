@@ -18,7 +18,6 @@ public class Controller implements Observer{
 	
 	private Chart chart;
 	private ChartView chartView;
-	//private Segment selected;
 	private ListIterator<Segment> it;
 
 	public Controller(){
@@ -29,7 +28,7 @@ public class Controller implements Observer{
 		it = chart.getSegments().listIterator();
 	}
 	
-	public static void main(final String[] args) {
+	public static void main(final String[] args) throws InterruptedException {
 		
 		Controller controller = new Controller();
 		
@@ -45,6 +44,7 @@ public class Controller implements Observer{
 		controller.chart.createSegment(300, "segment3", "Troisieme segment de test");
 		controller.chart.createSegment(300, "segment4", "Quatrieme segment de test");
 		controller.chart.createSegment(100, "segment5", "Cinquieme segment de test");
+		controller.nextSegment();
 
 		MouseListener l = new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
@@ -64,9 +64,10 @@ public class Controller implements Observer{
 	
 	public void nextSegment(){
 		it.next();
-		it.previous().setFocused(false);
-		it.next().setFocused(true);
-		
+//		it.previous().setFocused(false);
+//		it.next().setFocused(true);
+		chart.hasChanged();
+		chart.notifyObservers();
 	}
 	
 }
