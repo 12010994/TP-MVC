@@ -24,9 +24,9 @@ public class Chart extends Observable{
 		super.addObserver(o);
 	}
 
-	public void createSegment(int val, String name, String descriptor, String color){
+	public void createSegment(int val, String name, String descriptor){
 		total+=val;
-		segments.add(new Segment(name, descriptor, val, color));
+		segments.add(new Segment(name, descriptor, val));
 		setChanged();
 		notifyObservers();
 	}
@@ -40,7 +40,7 @@ public class Chart extends Observable{
 	
 	public void setSegment(int val, Segment segment){
 		deleteSegment(segment);
-		createSegment(val, segment.getName(), segment.getDescriptor(), segment.getColor());
+		createSegment(val, segment.getName(), segment.getDescriptor());
 		setChanged();
 		notifyObservers();
 	}
@@ -70,3 +70,4 @@ public class Chart extends Observable{
 	}
 
 }
+

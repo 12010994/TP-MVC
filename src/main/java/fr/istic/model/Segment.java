@@ -4,14 +4,12 @@ public class Segment {
 	
 	private String name;
 	private String descriptor;
-	private String color;
 	private int val;
 	
-	public Segment(String name, String descriptor, int val, String color) {
+	public Segment(String name, String descriptor, int val) {
 		this.name = name;
 		this.descriptor = descriptor;
 		this.val = val;
-		this.setColor(color);
 	}
 	
 	public String getName() {
@@ -33,12 +31,6 @@ public class Segment {
 		this.val = val;
 	}
 
-	public String getColor() {
-		return color;
-	}
-
-	public void setColor(String color) {
-		this.color = color;
-	}
 	
 }
+
