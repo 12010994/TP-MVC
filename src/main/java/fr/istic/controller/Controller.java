@@ -8,6 +8,7 @@ import java.util.ListIterator;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 
 import fr.istic.model.Chart;
@@ -45,7 +46,15 @@ public class Controller implements Observer{
 		controller.chart.createSegment(300, "segment4", "Quatrieme segment de test");
 		controller.chart.createSegment(100, "segment5", "Cinquieme segment de test");
 		controller.nextSegment();
-
+		Thread.sleep(1000);
+		System.out.println("hello");
+		controller.nextSegment();
+		Thread.sleep(1000);
+		System.out.println("hello");
+		controller.nextSegment();
+		Thread.sleep(1000);
+		System.out.println("hello");
+		controller.nextSegment();
 		MouseListener l = new MouseAdapter() {
 			public void mouseClicked(MouseEvent e) {
 				//e.getPos().x; e.getPos().y pour mouse listener 
@@ -54,18 +63,21 @@ public class Controller implements Observer{
 			}
 		};
 		
+		//controller.chartView.addMouseListener(l);
 		frame.addMouseListener(l);
 		
 	}
 
 	public void update(Observable o, Object arg) {
-		System.out.println("controller updated");
+		if (it != chart.getSegments().listIterator()){
+			it = chart.getSegments().listIterator();
+		}
 	}
 	
 	public void nextSegment(){
 		it.next();
-//		it.previous().setFocused(false);
-//		it.next().setFocused(true);
+		it.previous().setFocused(false);
+		it.next().setFocused(true);
 		chart.hasChanged();
 		chart.notifyObservers();
 	}
